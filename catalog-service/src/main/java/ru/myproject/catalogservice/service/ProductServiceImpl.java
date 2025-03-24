@@ -8,7 +8,7 @@ import ru.myproject.catalogservice.dto.NewProductDto;
 import ru.myproject.catalogservice.dto.ProductDto;
 import ru.myproject.catalogservice.dto.UpdateProductDto;
 import ru.myproject.catalogservice.entity.Product;
-import ru.myproject.catalogservice.repository.api.ProductRepository;
+import ru.myproject.catalogservice.repository.ProductRepository;
 import ru.myproject.catalogservice.service.api.ProductService;
 
 import java.util.List;
@@ -30,14 +30,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto getById(long productId) {
-        Product product = productRepository.getById(productId);
+        Product product = productRepository.getReferenceById(productId);
         return productConverter.convert(product);
     }
 
     @Override
     public void update(long productId, UpdateProductDto dto) {
         productRepository.save(productRepository
-                .getById(productId)
+                .getReferenceById(productId)
                 .title(dto.title())
                 .details(dto.details()));
     }

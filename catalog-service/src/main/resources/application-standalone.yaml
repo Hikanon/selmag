@@ -1,9 +1,16 @@
 spring:
   application:
     name: catalog-service
-  data:
-    rest:
-      base-path:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalog
+    username: catalog
+    password: catalog
+  flyway:
+    user: catalog
+    password: catalog
+    schemas:
+      - public
+      - catalog
 
 server:
   port: 8081

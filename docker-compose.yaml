@@ -1,0 +1,11 @@
+
+services:
+  pgAdmin:
+    container_name: DatabaseCatalog
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: catalog
+      POSTGRES_USERNAME: catalog
+      POSTGRES_PASSWORD: catalog
+    ports:
+      - "5432:5432"
