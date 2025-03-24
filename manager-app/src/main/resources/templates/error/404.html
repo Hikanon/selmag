@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{'error.404.title'}"></title>
+</head>
+<body>
+<a th:href="@{/catalog/products/list}">&larr; К списку товаров</a>
+<br>
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+<h1 th:text="${message}"></h1>
+</body>
+</html>

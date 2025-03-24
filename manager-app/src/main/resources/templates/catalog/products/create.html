@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый товар &ndash; Сельмаг</title>
+</head>
+<body>
+<a th:href="@{/catalog/products/list}">&larr; К списку товаров</a>
+<h1>Новый товар &ndash; Сельмаг</h1>
+<div th:if="${errors}">
+    <h2>Допущены ошибки</h2>
+    <ul>
+        <li th:each="error : ${errors}" th:text="${error}"></li>
+    </ul>
+</div>
+
+<form method="POST" th:action="@{/catalog/products/create}">
+
+    <label>
+        Название:<br>
+        <input type="text" th:value="${payload != null ? payload.title : ''}" name="title">
+    </label><br>
+    <label>
+        Описание:<br>
+        <!--/*@thymesVar id="payload" type="ru.myproject.managerapp.dto.NewProductDto"*/-->
+        <input type="text" th:value="${payload != null ? payload.details : ''}" name="details">
+    </label><br>
+    <button type="submit">Создать</button>
+
+</form>
+</body>
+</html>
